@@ -101,3 +101,97 @@ function onPressEsc(e) {
 createMar(galleryItems);
 
 refs.gallery.addEventListener('click', onImageClick);
+
+
+// другий варіант:
+
+// const refs = {
+//   gallery: document.querySelector(".js-gallery"),
+//   modal: document.querySelector(".js-lightbox"),
+//   modalImg: document.querySelector("img.lightbox__image"),
+//   closeModal: document.querySelector('button[data-action="close-lightbox"]'),
+// };
+
+// let currentImage;
+
+// const createItems = gallery.map((image, index) => {
+//   const { preview, original, description } = image;
+//   const createLi = document.createElement("li");
+//   const createA = document.createElement("a");
+//   const createImg = document.createElement("img");
+
+//   createLi.classList.add("gallery__item");
+//   createA.classList.add("gallery__link");
+//   createA.href = original;
+//   createImg.classList.add("gallery__image");
+//   createImg.dataset.source = original;
+//   createImg.dataset.index = index;
+//   createImg.alt = description;
+//   createImg.src = preview;
+//   createLi.appendChild(createA);
+//   createA.appendChild(createImg);
+//   return createLi;
+// });
+
+// refs.gallery.append(...createItems);
+
+// const onGalleryClick = (event) => {
+//   event.preventDefault();
+//   if (event.target.nodeName !== "IMG") {
+//     return;
+//   }
+//   window.addEventListener("keydown", onPressEscape);
+//   window.addEventListener("keydown", onPressArrow);
+//   refs.modal.classList.add("is-open");
+//   refs.modalImg.src = event.target.dataset.source;
+//   refs.closeModal.addEventListener("click", onCloseModal);
+//   currentImage = Number(event.target.dataset.index);
+// };
+
+// refs.gallery.addEventListener("click", onGalleryClick);
+
+// const onCloseModal = () => {
+//   window.removeEventListener("keydown", onPressEscape);
+//   window.removeEventListener("keydown", onPressArrow);
+//   refs.modal.classList.remove("is-open");
+//   refs.modalImg.src = "";
+// };
+
+// const onPressEscape = (event) => {
+//   if (event.code === "Escape") {
+//     onCloseModal();
+//   }
+// };
+
+// const onBackDropClick = (event) => {
+//   if (event.target !== refs.modal) {
+//     onCloseModal();
+//   }
+// };
+
+// refs.modal.addEventListener("click", onBackDropClick);
+
+// const prevImage = () => {
+//   if (currentImage > 0) {
+//     currentImage -= 1;
+//     refs.modalImg.src = gallery[currentImage].original;
+//     refs.modalImg.alt = gallery[currentImage].description;
+//   }
+// };
+
+// const nextImage = () => {
+//   if (currentImage < gallery.length - 1) {
+//     currentImage += 1;
+//     refs.modalImg.src = gallery[currentImage].original;
+//     refs.modalImg.alt = gallery[currentImage].description;
+//   }
+// };
+
+// const onPressArrow = (event) => {
+//   if (event.code === "ArrowRight") {
+//     nextImage();
+//   }
+//   if (event.code === "ArrowLeft") {
+//     prevImage();
+//   }
+// };

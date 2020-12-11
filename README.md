@@ -1,4 +1,4 @@
-Робоча сторінка - https://alinataran.github.io/goit-js-hw-08-gallery/
+
 
 Задание 
 
